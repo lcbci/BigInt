@@ -107,11 +107,13 @@ TeamWorkBigInt operator+(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 		b.symbol = 0;
 		return a - b;
 	}  
+	
 	if (a.symbol == 1 && b.symbol == 0) // (-a)+b = b-a
 	{
 		a.symbol = 0;
 		return b - a;
-	}	
+	}
+	
 	if (a.symbol == 1 && b.symbol == 1) // (-a)+(-b) = -(a+b)
 	{
 		a.symbol = 0;
