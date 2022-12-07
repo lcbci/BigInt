@@ -17,54 +17,54 @@ using namespace std;
 class TeamWorkBigInt
 {
 	private:
-		vector<int> vec; // ÓÃvector´¢´æÕûÊı¾ø¶ÔÖµ
-		int symbol;      // ·ûºÅ
+		vector<int> vec; // ç”¨vectorå‚¨å­˜æ•´æ•°ç»å¯¹å€¼
+		int symbol;      // ç¬¦å·
 	public:
-		TeamWorkBigInt() // ÎŞ²Î¹¹Ôìº¯Êı 
+		TeamWorkBigInt() // æ— å‚æ„é€ å‡½æ•° 
 		{
-			symbol=0; // ³õÊ¼·ûºÅÎªÕı
-	        vec.push_back(0); // ³õÊ¼»¯ 
+			symbol=0; // åˆå§‹ç¬¦å·ä¸ºæ­£
+	        vec.push_back(0); // åˆå§‹åŒ– 
 		}
-		TeamWorkBigInt(int b); // ÓĞ²Î¹¹Ôìº¯Êı 
-		TeamWorkBigInt operator=(TeamWorkBigInt a); // ¿½±´¹¹Ôìº¯Êı
+		TeamWorkBigInt(int b); // æœ‰å‚æ„é€ å‡½æ•° 
+		TeamWorkBigInt operator=(TeamWorkBigInt a); // æ‹·è´æ„é€ å‡½æ•°
 		
-		// Ë«Ä¿ÖØÔØ1 (BigInt)
+		// åŒç›®é‡è½½1 (BigInt)
 		TeamWorkBigInt operator+=(const TeamWorkBigInt& x) {*this=*this+x; return *this;}
 		TeamWorkBigInt operator-=(const TeamWorkBigInt& x) {*this=*this-x; return *this;}
 		TeamWorkBigInt operator*=(const TeamWorkBigInt& x) {*this=*this*x; return *this;}
 		TeamWorkBigInt operator/=(const TeamWorkBigInt& x) {*this=*this/x; return *this;}
 
-		// Ë«Ä¿ÖØÔØ2 (int)
+		// åŒç›®é‡è½½2 (int)
 		TeamWorkBigInt operator+=(const int& x) {*this=*this+x; return *this;}
 		TeamWorkBigInt operator-=(const int& x) {*this=*this-x; return *this;}
 		TeamWorkBigInt operator*=(const int& x) {*this=*this*x; return *this;}
 		TeamWorkBigInt operator/=(const int& x)	{*this=*this/x; return *this;}
 		
-		// ËÄÔòÔËËãÖØÔØ (BigInt,BigInt)
+		// å››åˆ™è¿ç®—é‡è½½ (BigInt,BigInt)
 		friend TeamWorkBigInt operator+(const TeamWorkBigInt& x,const TeamWorkBigInt& y);
 		friend TeamWorkBigInt operator-(const TeamWorkBigInt& x,const TeamWorkBigInt& y);
 		friend TeamWorkBigInt operator*(const TeamWorkBigInt& x,const TeamWorkBigInt& y);
 		friend TeamWorkBigInt operator/(const TeamWorkBigInt& x,const TeamWorkBigInt& y);
 		
-		// ËÄÔòÔËËãÖØÔØ (BigInt,int)
+		// å››åˆ™è¿ç®—é‡è½½ (BigInt,int)
 		friend TeamWorkBigInt operator+(const TeamWorkBigInt& x,const int& y) {TeamWorkBigInt t; t=y; return x+t;}
 		friend TeamWorkBigInt operator-(const TeamWorkBigInt& x,const int& y) {TeamWorkBigInt t; t=y; return x-t;}
 		friend TeamWorkBigInt operator*(const TeamWorkBigInt& x,const int& y) {TeamWorkBigInt t; t=y; return x*t;}
 		friend TeamWorkBigInt operator/(const TeamWorkBigInt& x,const int& y); 
-		// ³ı·¨ÊÇ´óÕûÊıÔËËãĞ§ÂÊµÄÆ¿¾±£¬ÔÚÓöµ½´óÕûÊı³ıÓÚÕûÊıÊ±£¬Èç¹û½«ÕûÊı×ªÎª´óÕûÊıÔÙÔËËã£¬Ğ§ÂÊºÜµÍ
-		// Òò´Ë£¬ĞèÒªÒ»¸öÖ±½Ó½«´óÕûÊıºÍÕûÊıÔËËãµÄËã·¨£¬ÕâÑùÄÜ´ó´óÌá¸ßĞ§ÂÊ
+		// é™¤æ³•æ˜¯å¤§æ•´æ•°è¿ç®—æ•ˆç‡çš„ç“¶é¢ˆï¼Œåœ¨é‡åˆ°å¤§æ•´æ•°é™¤äºæ•´æ•°æ—¶ï¼Œå¦‚æœå°†æ•´æ•°è½¬ä¸ºå¤§æ•´æ•°å†è¿ç®—ï¼Œæ•ˆç‡å¾ˆä½
+		// å› æ­¤ï¼Œéœ€è¦ä¸€ä¸ªç›´æ¥å°†å¤§æ•´æ•°å’Œæ•´æ•°è¿ç®—çš„ç®—æ³•ï¼Œè¿™æ ·èƒ½å¤§å¤§æé«˜æ•ˆç‡
 
-		friend int compare_size(const TeamWorkBigInt& x,const TeamWorkBigInt& y);   // ±È½ÏÁ½¸öÊı¾ø¶ÔÖµ´óĞ¡
-		friend TeamWorkBigInt pow(const TeamWorkBigInt& a,int b);                   // Ãİº¯Êı 
-		friend ostream& operator<<(ostream& out,const TeamWorkBigInt& a);     		// Êä³öÖØÔØ 
+		friend int compare_size(const TeamWorkBigInt& x,const TeamWorkBigInt& y);   // æ¯”è¾ƒä¸¤ä¸ªæ•°ç»å¯¹å€¼å¤§å°
+		friend TeamWorkBigInt pow(const TeamWorkBigInt& a,int b);                   // å¹‚å‡½æ•° 
+		friend ostream& operator<<(ostream& out,const TeamWorkBigInt& a);     		// è¾“å‡ºé‡è½½ 
 };
 
 TeamWorkBigInt::TeamWorkBigInt(int b)
 {
 	int temp, i = 0, a = b;
-	vec.clear(); //½«³õÊ¼»¯µÄvec[0]Çå¿Õ
+	vec.clear(); //å°†åˆå§‹åŒ–çš„vec[0]æ¸…ç©º
 
-	if (a >= 0)	 //ÅĞ¶Ï·ûºÅ
+	if (a >= 0)	 //åˆ¤æ–­ç¬¦å·
 		symbol = 0;
 	else
 	{
@@ -72,7 +72,7 @@ TeamWorkBigInt::TeamWorkBigInt(int b)
 		a = -a;
 	}
 
-	while (a > 9) //ÓÃÕûĞÎ¸ø´óÕûÊı¸³Öµ¼ÆËãÁ¿²»´ó£¬ÓÃpush_back¿ª±ÙÄÚ´æ½ÏÎªºÏÊÊ
+	while (a > 9) //ç”¨æ•´å½¢ç»™å¤§æ•´æ•°èµ‹å€¼è®¡ç®—é‡ä¸å¤§ï¼Œç”¨push_backå¼€è¾Ÿå†…å­˜è¾ƒä¸ºåˆé€‚
 	{
 		temp = a % 10;
 		vec.push_back(temp);
@@ -87,9 +87,9 @@ TeamWorkBigInt TeamWorkBigInt::operator=(TeamWorkBigInt a)
 	int i;
 	vec.clear();
 	symbol = a.symbol;
-	vec.swap(a.vec); // swapĞ§ÂÊ¸ß£¡
+	vec.swap(a.vec); // swapæ•ˆç‡é«˜ï¼
 
-	//ÒÔÏÂĞ´·¨Ğ§ÂÊµÍ
+	//ä»¥ä¸‹å†™æ³•æ•ˆç‡ä½
 	//	vec.resize(a.vec.size(),0);
 	//	for(i=0;i<a.vec.size();i++)
 	//	{
@@ -107,13 +107,11 @@ TeamWorkBigInt operator+(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 		b.symbol = 0;
 		return a - b;
 	}  
-
 	if (a.symbol == 1 && b.symbol == 0) // (-a)+b = b-a
 	{
 		a.symbol = 0;
 		return b - a;
 	}	
-
 	if (a.symbol == 1 && b.symbol == 1) // (-a)+(-b) = -(a+b)
 	{
 		a.symbol = 0;
@@ -126,28 +124,28 @@ TeamWorkBigInt operator+(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 	if (a.symbol == 0 && b.symbol == 0) // a+b
 	{
 		int max, i, s = 0;
-		if (a.vec.size() >= b.vec.size()) // ÅĞ¶Ï´óĞ¡£¬²¢½«Ğ¡µÄ´óÕûÊıÀ©Èİ£¨ÖµÎª0£©
+		if (a.vec.size() >= b.vec.size()) // åˆ¤æ–­å¤§å°ï¼Œå¹¶å°†å°çš„å¤§æ•´æ•°æ‰©å®¹ï¼ˆå€¼ä¸º0ï¼‰
 		{
 			max = a.vec.size();
-			b.vec.resize(max, 0); // À©Èİ
+			b.vec.resize(max, 0); // æ‰©å®¹
 		}
 		else
 		{
 			max = b.vec.size();
-			a.vec.resize(max, 0); // À©Èİ
+			a.vec.resize(max, 0); // æ‰©å®¹
 		}
 
-		c.vec.resize(max + 1, 0); // ¿ª±Ù¿Õ¼ä
+		c.vec.resize(max + 1, 0); // å¼€è¾Ÿç©ºé—´
 
-		for (i = 0; i < max; i++) // ºËĞÄËã·¨
+		for (i = 0; i < max; i++) // æ ¸å¿ƒç®—æ³•
 		{
 			int s = a.vec[i] + b.vec[i] + c.vec[i];
 			c.vec[i + 1] = s / 10;
 			c.vec[i] = s % 10;
 
-		} // µ¹Ğò´¢´æ
+		} // å€’åºå‚¨å­˜
 
-		for (i = max; i >= 0; i--) // É¾³ı¶àÓàµÄ0
+		for (i = max; i >= 0; i--) // åˆ é™¤å¤šä½™çš„0
 		{
 			if (c.vec[i] != 0)
 				break;
@@ -196,10 +194,10 @@ TeamWorkBigInt operator-(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 		{
 			int max, i;
 			max = a.vec.size();
-			b.vec.resize(max, 0); // ÌáÇ°¿ª±Ù¿Õ¼ä£¬±ÜÃâÔÚÑ­»·Àï¿ª±Ù£¬Ìá¸ßÔËĞĞĞ§ÂÊ
+			b.vec.resize(max, 0); // æå‰å¼€è¾Ÿç©ºé—´ï¼Œé¿å…åœ¨å¾ªç¯é‡Œå¼€è¾Ÿï¼Œæé«˜è¿è¡Œæ•ˆç‡
 			c.vec.resize(max + 1, 0);
 
-			for (i = 0; i < max; i++) // ºËĞÄËã·¨
+			for (i = 0; i < max; i++) // æ ¸å¿ƒç®—æ³•
 			{
 				int s = a.vec[i] - b.vec[i] + c.vec[i];
 				if (s < 0)
@@ -214,7 +212,7 @@ TeamWorkBigInt operator-(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 				}
 			}
 
-			for (i = max; i >= 0; i--) // É¾³ı¶àÓàµÄ0
+			for (i = max; i >= 0; i--) // åˆ é™¤å¤šä½™çš„0
 			{
 				if (c.vec[i] != 0)
 					break;
@@ -266,18 +264,18 @@ TeamWorkBigInt operator*(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 
 	if (a.symbol == 0 && b.symbol == 0) // a*b
 	{
-		if (compare_size(a, b) == -1) // ´ó³ËĞ¡
+		if (compare_size(a, b) == -1) // å¤§ä¹˜å°
 		{
 			a = y;
 			b = x;
 		}
 		
-		max = a.vec.size(); // ´óÊıµÄÈİÁ¿
-		min = b.vec.size(); // Ğ¡ÊıµÄÈİÁ¿
+		max = a.vec.size(); // å¤§æ•°çš„å®¹é‡
+		min = b.vec.size(); // å°æ•°çš„å®¹é‡
 
-		for (i = 0; i < min; i++) // ºËĞÄËã·¨
+		for (i = 0; i < min; i++) // æ ¸å¿ƒç®—æ³•
 		{
-			t.vec.resize(i+1,0); // ¿ª±Ù½øÎ»¿Õ¼ä
+			t.vec.resize(i+1,0); // å¼€è¾Ÿè¿›ä½ç©ºé—´
 			for (j = 0; j < max; j++)
 			{
 				int temp = a.vec[j] * b.vec[i] + t.vec[j + i];
@@ -285,7 +283,7 @@ TeamWorkBigInt operator*(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 				t.vec.push_back(temp / 10);
 			}
 			c = c + t;
-			t.vec.clear(); // Çå¿Õ
+			t.vec.clear(); // æ¸…ç©º
 		}
 		return c;
 	}
@@ -295,9 +293,9 @@ TeamWorkBigInt operator/(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 {
 	int i, r = 0, min, max, q, clen;
 	TeamWorkBigInt a(x), b(y), c, t, n(10);
-	// ¾­²âÊÔÈç¹ûÍêÈ«ÅĞ¶Ï£¬¼ÆËãÔ²ÖÜÂÊĞ§ÂÊ´ó´óÏÂ½µ
-	// Èç¹ûĞèÒªÆäËû´óÕûÊı¼ÆËã£¬ÇëÍêÉÆÅĞ¶ÏÌõ¼ş
-	if (b.vec.back() == 1 && b.vec.front() == 0) //Èç¹û³ıÓÚ10µÄ±¶Êı£¬Ö±½ÓÉ¾³ıÎ»Êı £¨ÅĞ¶ÏÌõ¼ş²¢²»ÑÏ½÷£¬½öÕë¶Ô´ËÌâ£©
+	// ç»æµ‹è¯•å¦‚æœå®Œå…¨åˆ¤æ–­ï¼Œè®¡ç®—åœ†å‘¨ç‡æ•ˆç‡å¤§å¤§ä¸‹é™
+	// å¦‚æœéœ€è¦å…¶ä»–å¤§æ•´æ•°è®¡ç®—ï¼Œè¯·å®Œå–„åˆ¤æ–­æ¡ä»¶
+	if (b.vec.back() == 1 && b.vec.front() == 0) //å¦‚æœé™¤äº10çš„å€æ•°ï¼Œç›´æ¥åˆ é™¤ä½æ•° ï¼ˆåˆ¤æ–­æ¡ä»¶å¹¶ä¸ä¸¥è°¨ï¼Œä»…é’ˆå¯¹æ­¤é¢˜ï¼‰
 	{
 		q = b.vec.size() - 1;
 		a.vec.erase(a.vec.begin(), a.vec.begin() + q);
@@ -327,18 +325,18 @@ TeamWorkBigInt operator/(const TeamWorkBigInt &x, const TeamWorkBigInt &y)
 		return a / b;
 	}
 
-	// a/b ´óÕûÊı³ıÓÚ´óÕûÊı ±¾ÌâÓÃ²»µ½
+	// a/b å¤§æ•´æ•°é™¤äºå¤§æ•´æ•° æœ¬é¢˜ç”¨ä¸åˆ°
 	// if (a.symbol == 0 && b.symbol == 0)
 	// {
 	// 	if (compare_size(a, b) == -1)
 	// 	{
-	// 		t = 0; // ¸³Öµ
+	// 		t = 0; // èµ‹å€¼
 	// 		return t;
 	// 	}
 	//
 	// 	if (compare_size(a, b) == 0)
 	// 	{
-	// 		t = 1; // ¸³Öµ
+	// 		t = 1; // èµ‹å€¼
 	// 		return t;
 	// 	}
 	//
@@ -416,13 +414,13 @@ TeamWorkBigInt operator/(const TeamWorkBigInt &x, const int &y)
 			clen = a.vec.size();
 			c.vec.resize(clen, 0);
 
-			for (i = clen - 1; i >= 0; i--) // ºËĞÄËã·¨(Ìá¸ß±¾Ìâ¼ÆËãĞ§ÂÊµÄ×îÖØÒªµÄ²¿·Ö)
+			for (i = clen - 1; i >= 0; i--) // æ ¸å¿ƒç®—æ³•(æé«˜æœ¬é¢˜è®¡ç®—æ•ˆç‡çš„æœ€é‡è¦çš„éƒ¨åˆ†)
 			{
 				c.vec[i] = (r * 10 + a.vec[i]) / b;
 				r = (r * 10 + a.vec[i]) % b;
 			}
 			
-			for (i = clen - 1; i >= 0; i--) // Ïû³ı¶àÓàµÄ0
+			for (i = clen - 1; i >= 0; i--) // æ¶ˆé™¤å¤šä½™çš„0
 			{
 				if (c.vec[i] == 0)
 					c.vec.pop_back();
@@ -435,7 +433,7 @@ TeamWorkBigInt operator/(const TeamWorkBigInt &x, const int &y)
 	}
 }
 
-int compare_size(const TeamWorkBigInt &x, const TeamWorkBigInt &y) //±È½ÏÁ½¸öÊı¾ø¶ÔÖµ´óĞ¡
+int compare_size(const TeamWorkBigInt &x, const TeamWorkBigInt &y) //æ¯”è¾ƒä¸¤ä¸ªæ•°ç»å¯¹å€¼å¤§å°
 {
 	int i;
 
@@ -449,9 +447,9 @@ int compare_size(const TeamWorkBigInt &x, const TeamWorkBigInt &y) //±È½ÏÁ½¸öÊı¾
 		return -1;
 	}
 
-	if (x.vec.size() == y.vec.size()) // ÈôÎ»ÊıÏàµÈ
+	if (x.vec.size() == y.vec.size()) // è‹¥ä½æ•°ç›¸ç­‰
 	{
-		for (i = x.vec.size() - 1; i >= 0; i--) // ´Ó×î¸ßÎ»¿ªÊ¼±È½Ï´óĞ¡
+		for (i = x.vec.size() - 1; i >= 0; i--) // ä»æœ€é«˜ä½å¼€å§‹æ¯”è¾ƒå¤§å°
 		{
 			if (x.vec[i] == y.vec[i])
 			{
@@ -468,19 +466,19 @@ int compare_size(const TeamWorkBigInt &x, const TeamWorkBigInt &y) //±È½ÏÁ½¸öÊı¾
 				return -1;
 			}
 		}
-		return 0; // ¶¼ÏàµÈ·µ»Ø0
+		return 0; // éƒ½ç›¸ç­‰è¿”å›0
 	}
 }
 
 TeamWorkBigInt pow(const TeamWorkBigInt &a, int b)
 {
-	// Õë¶Ô±¾Ìâ10^nµÄÇéĞÎ£¬Ö±½ÓÌí¼Ó0£¬Ìá¸ßÔËĞĞĞ§ÂÊ
+	// é’ˆå¯¹æœ¬é¢˜10^nçš„æƒ…å½¢ï¼Œç›´æ¥æ·»åŠ 0ï¼Œæé«˜è¿è¡Œæ•ˆç‡
 	TeamWorkBigInt t;
 	int i;
 	t.vec.resize(b + 1, 0);
 	t.vec[b] = 1;
 	return t;
-	// ±ê×¼Ğ´·¨
+	// æ ‡å‡†å†™æ³•
 	//	t=a;
 	//	for(i=1;i<b;i++)
 	//	{
@@ -489,15 +487,15 @@ TeamWorkBigInt pow(const TeamWorkBigInt &a, int b)
 	//	return t;
 }
 
-ostream &operator<<(ostream &out, const TeamWorkBigInt &a) // Êä³öÖØÔØ
+ostream &operator<<(ostream &out, const TeamWorkBigInt &a) // è¾“å‡ºé‡è½½
 {
 	int i;
-	if (a.symbol == 1 && a.vec[a.vec.size() - 1] != 0) // ¸ºÊı£¨²»°üÀ¨0£©
+	if (a.symbol == 1 && a.vec[a.vec.size() - 1] != 0) // è´Ÿæ•°ï¼ˆä¸åŒ…æ‹¬0ï¼‰
 	{
 		out << "-";
 	}
 
-	for (i = a.vec.size() - 1; i >= 0; i--) // Öğ¸öÊä³ö
+	for (i = a.vec.size() - 1; i >= 0; i--) // é€ä¸ªè¾“å‡º
 	{
 		out << a.vec[i];
 	}
@@ -505,15 +503,15 @@ ostream &operator<<(ostream &out, const TeamWorkBigInt &a) // Êä³öÖØÔØ
 	return out;
 }
 
-void calculate_pi() // ¼ÆËãÔ²ÖÜÂÊ
+void calculate_pi() // è®¡ç®—åœ†å‘¨ç‡
 {
 	int i, N;
-	clock_t startTime, endTime; // clockÓÃÀ´¼ÆÊ±
+	clock_t startTime, endTime; // clockç”¨æ¥è®¡æ—¶
 	TeamWorkBigInt n = 10, b, x1, x2, s, t, pi;
 	cout << "--------------------------------------------------" << endl;
-	cout << "ÇëÊäÈëÒª¼ÆËãµ½µÄÔ²ÖÜÂÊÎ»Êı:" << endl;
+	cout << "è¯·è¾“å…¥è¦è®¡ç®—åˆ°çš„åœ†å‘¨ç‡ä½æ•°:" << endl;
 	cin >> N;
-	startTime = clock(); // ¿ªÊ¼¼ÆÊ±
+	startTime = clock(); // å¼€å§‹è®¡æ—¶
 	N--;
 	b = pow(n, N + 10);
 
@@ -530,10 +528,10 @@ void calculate_pi() // ¼ÆËãÔ²ÖÜÂÊ
 	}
 	pi = s * 4;
 	cout << endl
-		 << "¼ÆËã½á¹ûÎª:" << endl;
+		 << "è®¡ç®—ç»“æœä¸º:" << endl;
 	cout << (pi / pow(n, 10)) << endl
 		 << endl;
-	endTime = clock();  // ½áÊø¼ÆÊ±
+	endTime = clock();  // ç»“æŸè®¡æ—¶
 	cout << "The run time is: " << (double)(endTime - startTime) / 1000.0 << "s" << endl;
 	cout << "--------------------------------------------------" << endl;
 	cin.get();
